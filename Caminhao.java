@@ -1,30 +1,14 @@
-public class Caminhao {
-    private String marca;
-    private String modelo;
-    private double precoBase;
+public class Caminhao extends VeiculoBase{
     private int taxaCarga;
 
     // Construtor
 
-    public Caminhao(String marca, String modelo, double precoBase){
-        this.marca = marca;
-        this.modelo = modelo;
-        this.precoBase = precoBase;
+    public Caminhao(String marca, String modelo, double precoBase, int taxaCarga){
+        super(marca, modelo, precoBase);
+        this.taxaCarga = taxaCarga;
     }
 
     // Getters
-
-    public String getMarca(){
-        return marca;
-    }
-
-    public String getModelo(){
-        return modelo;
-    }
-
-    public double getPrecoBase(){
-        return precoBase;
-    }
 
     public int getTaxaCarga(){
         return taxaCarga;
@@ -32,27 +16,15 @@ public class Caminhao {
 
     // Setter
 
-    public void setMarca(String marca){
-        this.marca = marca;
-    }
-
-    public void setModelo(String modelo){
-        this.modelo = modelo;
-    }
-
-    public void setPrecoBase(double precoBase){
-        this.precoBase = precoBase;
-    }
-
     public void setTaxaCarga(int taxaCarga){
         this.taxaCarga = taxaCarga;
     }
 
-    public double calcularPreco(int taxaCarga){
-        return this.precoBase = (precoBase * taxaCarga / 100) + precoBase;
+    // Métodos
+
+    @Override
+    public double calcularPreco(){
+        return this.precoLocacao = this.precoBase + (this.precoBase * this.taxaCarga);
     }
 
-    public String toString(){
-        return "Caminhão[ Marca = " + marca + " - Modelo = " + modelo + " - Preço Locação = " + precoBase  + "]";
-    }
 }
